@@ -4,7 +4,7 @@ const db = require("../model/helper");
 
 
 /* GET all recipes */
-router.get("/", function(req, res) {
+router.get("/", async function(req, res) {
   db("SELECT * FROM recipes;")
     .then(results => {
       res.send(results.data);
@@ -13,7 +13,7 @@ router.get("/", function(req, res) {
 });
 
 //write get by ID function
-router.get("/id", async function(req, res) {
+router.get("/:id", async function(req, res) {
   let recipeID = req.params.id;
 
   try {
