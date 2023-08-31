@@ -21,19 +21,10 @@ CREATE TABLE `recipes`(
     `name` VARCHAR(255) NOT NULL,
     `link` TINYINT NOT NULL,
     `description` LONGTEXT NOT NULL,
-    `category_id` INT NOT NULL
+    `category` VARCHAR
 );
 
-
-ALTER TABLE 
-    `recipes` ADD CONSTRAINT `recipes_category_id_foreign` FOREIGN KEY(`category id`) REFERENCES `category`(`id`);
-
-INSERT INTO category (name)
-VALUES  
-    ('vegan'),
-    ('vegetarian')
-
-INSERT INTO recipes (name, link, description, category_id)
+INSERT INTO recipes (name, link, description, category)
 VALUES
     (`Lion's Mane Mushroom Crab Cakes`, 
     https://www.yummymummykitchen.com/2021/03/lions-mane-mushroom-recipes-crab-cakes.html#mv-creation-558-jtr,

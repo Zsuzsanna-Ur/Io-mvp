@@ -5,7 +5,7 @@ const EMPTY_FORM = {
     name: "",
     description: "",
     link: "",
-    category_id: ""
+    category: ""
   };
 
 function NewRecipe(props){
@@ -56,12 +56,7 @@ function NewRecipe(props){
 
             <label>
               Recipe Category
-              <input
-                type="int"
-                name="category_id"
-                value={formData.link}
-                onChange={handleChange}
-              />
+            
             </label>
     
             <button type="submit">Add Recipe</button>
