@@ -1,13 +1,54 @@
 var express = require('express');
 var router = express.Router();
+const db = require("../model/helper");
+
 
 /* GET all recipes */
-router.get('/recipes', function(req, res, next) {
-  res.send('respond with a resource');
+router.get("/", function(req, res) {
+  db("SELECT * FROM recipes;")
+    .then(results => {
+      res.send(results.data);
+    })
+    .catch(err => res.status(500).send(err));
 });
 
 //write get by ID function
+router.get("/id", async function(req, res) {
+  let recipeID = req.params.id;
+
+  try {
+    // Does the recipe exist?
+    let result = await db(`SELECT * FROM recipes WHERE id = ${recipeID}`);
+    if (result.data.length === 1) {
+      // recipe exists
+      res.send(result.data[0]);
+    } else {
+      // recipe not found
+      res.status(404).send({ error: "Recipe not found" });
+    }
+  } catch (err) {
+    res.status(500).send({ error: err.message });
+  }
+});
 
 //write post
+router.post("/", async function(req, res) {
+  let { name, link, description, category } = req.body;
+  let sql = `
+    INSERT INTO recipes (name, link, description, category)
+    VALUES ('${name}', '${link}', '${description}', '${category}')
+  `;
+
+  try {
+    // Insert recipe, ignore the result
+    await db(sql);
+    // Return updated recipe list
+    let result = await db("SELECT * FROM recipes");
+    res.status(201).send(result.data);
+  } catch (err) {
+    res.status(500).send({ error: err.message });
+  }
+});
+
 
 module.exports = router;
