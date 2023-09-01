@@ -1,5 +1,6 @@
 import React from "react";
 import Axios from "axios";
+import { useNavigate } from "react-router-dom";
 import "./RecipeList.css";
 
 // state to store RecipeList
@@ -8,6 +9,7 @@ import "./RecipeList.css";
 
 function RecipeList(props) {
   const [recipes, setRecipes] = React.useState([]); //set recipes will update state any time it's called and re-render
+  const navigate = useNavigate();
 
   React.useEffect(() => {
     Axios.get("http://localhost:4000/api/recipes").then((response) => {
@@ -22,7 +24,7 @@ function RecipeList(props) {
       <ul>
         {recipes.map((r) => (
           <li key={r.id}>
-            <span onClick={(e) => props.showCB(r.id)}>
+            <span onClick={(e) => navigate(`/${r.id}`)}>
               {r.name} {r.description} {r.category}
             </span>
           </li>

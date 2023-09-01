@@ -1,0 +1,13 @@
+.RecipeList button {
+  margin-right: 10px;
+  margin-bottom: 2px;
+}
+
+.RecipeList ul {
+  list-style-type: none;
+  padding-left: 0px;
+}
+
+.RecipeList span {
+  cursor: pointer;
+}
