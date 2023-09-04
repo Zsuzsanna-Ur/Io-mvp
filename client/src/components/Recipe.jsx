@@ -18,14 +18,18 @@ function Recipe(props) {
   }, [params.id]);
 
   return (
+    //display Recipe Data
     <div className="Recipe">
       <ul>
         {recipe && (
           <li key={recipe.id}>
             {/* if recipe is set, then will show */}
-            <span onClick={(e) => props.showCB(recipe.id)}>
-              {recipe.name} {recipe.description} {recipe.category}
-            </span>
+            <div className="Title">{recipe.name}</div>
+            <div className="Category">{recipe.category}</div>
+            <div className="Description">{recipe.description} </div>
+            <div className="Link">
+              <a href={recipe.link}>Click Here for the Recipe</a>
+            </div>
           </li>
         )}
       </ul>

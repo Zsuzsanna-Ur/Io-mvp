@@ -1,6 +1,6 @@
 import React from "react";
 import Axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "./RecipeList.css";
 
 // state to store RecipeList
@@ -20,17 +20,23 @@ function RecipeList(props) {
   }, []); //will run any time dependencies change, leaving array empty because nothing needs to be added after it's initially fetched
 
   return (
-    <div className="RecipeList">
-      <ul>
-        {recipes.map((r) => (
-          <li key={r.id}>
-            <span onClick={(e) => navigate(`/${r.id}`)}>
-              {r.name} {r.description} {r.category}
-            </span>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <>
+      <div className="RecipeList">
+        <div className="Title">Your Recipes</div>
+        <ul>
+          {recipes.map((r) => (
+            <li key={r.id}>
+              <div className="RecipeNames">
+                <span onClick={(e) => navigate(`/${r.id}`)}>{r.name}</span>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="addRecipeLink">
+        <Link to="/addRecipe">Add a Recipe Here!</Link>
+      </div>
+    </>
   );
 }
 
