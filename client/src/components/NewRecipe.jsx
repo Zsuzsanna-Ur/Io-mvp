@@ -84,20 +84,22 @@ const NewRecipe = () => {
 
   const handleSubmit = async () => {
     // store the states in the form data
-    const newRecipeData = new FormData();
-    newRecipeData.append("name", formValue.name);
-    newRecipeData.append("category", formValue.category);
-    newRecipeData.append("link", formValue.link);
-    newRecipeData.append("description", formValue.description);
+    // // const newRecipeData = new FormData();
+    // newRecipeData.append("name", formValue.name);
+    // newRecipeData.append("category", formValue.category);
+    // newRecipeData.append("link", formValue.link);
+    // newRecipeData.append("description", formValue.description);
+    console.log("im here");
 
     try {
       // make axios post request
 
-      const response = await axios({
-        method: "post",
-        url: "/api/recipes",
-        data: newRecipeData,
-        headers: { "Content-Type": "multipart/form-data" },
+      const response = await fetch("/api/recipes", {
+        method: "POST",
+        body: formValue,
+        headers: {
+          "Content-Type": "application/json",
+        },
       });
 
       console.log(response);

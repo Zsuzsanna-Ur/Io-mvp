@@ -1,19 +1,18 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
 const db = require("../model/helper");
 
-
 /* GET all recipes */
-router.get("/", async function(req, res) {
+router.get("/", async function (req, res) {
   db("SELECT * FROM recipes;")
-    .then(results => {
+    .then((results) => {
       res.send(results.data);
     })
-    .catch(err => res.status(500).send(err));
+    .catch((err) => res.status(500).send(err));
 });
 
 //write get by ID function
-router.get("/:id", async function(req, res) {
+router.get("/:id", async function (req, res) {
   let recipeID = req.params.id;
 
   try {
@@ -32,8 +31,9 @@ router.get("/:id", async function(req, res) {
 });
 
 //write post
-router.post("/", async function(req, res) {
+router.post("/", async function (req, res) {
   let { name, link, description, category } = req.body;
+  console.log(req.body);
   let sql = `
     INSERT INTO recipes (name, link, description, category)
     VALUES ('${name}', '${link}', '${description}', '${category}')
@@ -49,6 +49,5 @@ router.post("/", async function(req, res) {
     res.status(500).send({ error: err.message });
   }
 });
-
 
 module.exports = router;
