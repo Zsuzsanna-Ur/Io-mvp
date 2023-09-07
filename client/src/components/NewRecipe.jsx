@@ -1,78 +1,6 @@
-// import React, { useState } from "react";
-// import "./NewRecipe.css";
-
-// const EMPTY_FORM = {
-//   name: "",
-//   description: "",
-//   link: "",
-//   category: "",
-// };
-
-// function NewRecipe(props) {
-//   const [formData, setFormData] = useState(EMPTY_FORM);
-//   function handleChange(event) {
-//     let { name, value } = event.target;
-//     setFormData((formData) => ({ ...formData, [name]: value }));
-//   }
-
-//   function handleSubmit(event) {
-//     event.preventDefault();
-//     props.addStudentCb(formData);
-//     setFormData(EMPTY_FORM);
-//   }
-
-//   return (
-//     <div className="NewRecipe">
-//       <form onSubmit={handleSubmit}>
-//         <label>
-//           Name
-//           <input
-//             type="text"
-//             name="name"
-//             value={formData.name}
-//             onChange={handleChange}
-//           />
-//         </label>
-
-//         <label>
-//           Link
-//           <input
-//             type="url"
-//             name="link"
-//             value={formData.link}
-//             onChange={handleChange}
-//           />
-//         </label>
-
-//         <label>
-//           Category
-//           <input
-//             type="text"
-//             name="category"
-//             value={formData.category}
-//             onChange={handleChange}
-//           />
-//         </label>
-
-//         <label>
-//           Description
-//           <textarea
-//             name="description"
-//             value={formData.description}
-//             onChange={handleChange}
-//           />
-//         </label>
-
-//         <button type="submit">Add Recipe</button>
-//       </form>
-//     </div>
-//   );
-// }
-
-// export default NewRecipe;
-
 import React from "react";
 import axios from "axios";
+import "./NewRecipe.css";
 
 const NewRecipe = () => {
   const [formValue, setformValue] = React.useState({
@@ -98,9 +26,14 @@ const NewRecipe = () => {
       const response = await axios({
         method: "POST",
         url: "http://localhost:5173/api/recipes",
-        body: formValue,
+        data: JSON.stringify({
+          name: formValue.name,
+          category: formValue.category,
+          link: formValue.link,
+          description: formValue.description,
+        }),
         headers: {
-          "Content-Type": "application/json; charset=utf-8",
+          "Content-Type": "application/json",
         },
       });
 
@@ -119,7 +52,7 @@ const NewRecipe = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <p>Submit New Recipe</p>
+      <p>Add a New Recipe</p>
       <input
         type="text"
         name="name"
@@ -147,7 +80,7 @@ const NewRecipe = () => {
         value={formValue.description}
         onChange={handleChange}
       />
-      <button type="submit">submit</button>
+      <button type="submit">Submit</button>
     </form>
   );
 };

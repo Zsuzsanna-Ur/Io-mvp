@@ -37,3 +37,13 @@
 .RecipeList span {
   cursor: pointer;
 }
+
+.RecipeList {
+  width: 600px;
+  margin: 0 auto;
+  border-bottom: 1px solid #ccc;
+  margin-top: 2em;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}

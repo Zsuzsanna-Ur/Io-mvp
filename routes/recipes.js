@@ -50,4 +50,26 @@ router.post("/", async function (req, res) {
   }
 });
 
+//write DELETE
+router.delete("/:id", async function (req, res, next) {
+  let recipeID = req.params.id;
+
+  try {
+    // Does the recipe exist?
+    let result = await db(`SELECT * FROM recipes WHERE id = ${recipeID}`);
+    if (result.data.length === 1) {
+      // recipe exists; delete it and ignore result
+      await db(`DELETE FROM recipes WHERE id = ${recipeID}`);
+      // Return updated recipe list
+      result = await db("SELECT * FROM recipes");
+      res.send(result.data);
+    } else {
+      // recipe not found
+      res.status(404).send({ error: "Recipe not found" });
+    }
+  } catch (err) {
+    res.status(500).send({ error: err.message });
+  }
+});
+
 module.exports = router;
