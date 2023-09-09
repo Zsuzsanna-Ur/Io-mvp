@@ -3,12 +3,18 @@ import "./App.css";
 import RecipeList from "./components/RecipeList";
 import NewRecipe from "./components/NewRecipe";
 import Recipe from "./components/Recipe";
+import HomePage from "./components/HomePage";
+
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
   // define routes
   {
     path: "/",
+    element: <HomePage />,
+  },
+  {
+    path: "/Recipe",
     element: <RecipeList />,
   },
   {

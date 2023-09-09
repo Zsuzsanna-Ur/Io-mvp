@@ -25,10 +25,13 @@ function RecipeList(props) {
         <div className="NavBar">
           <ul>
             <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
               <Link to="/addRecipe">Add a Recipe</Link>
             </li>
             <li>
-              <Link to="/">Recipe List</Link>
+              <Link to="/Recipe">Recipe List</Link>
             </li>
           </ul>
         </div>

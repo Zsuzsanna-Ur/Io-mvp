@@ -3,13 +3,6 @@
   text-align: center;
 }
 
-.addRecipeLink {
-  color: #3f4a01;
-  text-align: center;
-  font-weight: bold;
-  padding: 10px;
-}
-
 .RecipeList button {
   margin-right: 10px;
   margin-bottom: 2px;
@@ -17,7 +10,6 @@
 
 .RecipeList ul {
   list-style-type: none;
-  padding-left: 0px;
   cursor: pointer;
 }
 

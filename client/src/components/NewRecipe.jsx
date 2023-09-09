@@ -1,9 +1,10 @@
 import React from "react";
 import axios from "axios";
 import "./NewRecipe.css";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const NewRecipe = () => {
+  const navigate = useNavigate();
   const [formValue, setformValue] = React.useState({
     name: "",
     category: "",
@@ -39,6 +40,7 @@ const NewRecipe = () => {
       });
 
       console.log(response);
+      navigate(`/Recipe`);
     } catch (error) {
       console.log(error);
     }
@@ -56,10 +58,13 @@ const NewRecipe = () => {
       <div className="NavBar">
         <ul>
           <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
             <Link to="/addRecipe">Add a Recipe</Link>
           </li>
           <li>
-            <Link to="/">Recipe List</Link>
+            <Link to="/Recipe">Recipe List</Link>
           </li>
         </ul>
       </div>
