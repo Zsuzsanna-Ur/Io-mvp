@@ -25,19 +25,3 @@
 .button:hover {
   background-color: #357935;
 }
-
-/* Nav Bar */
-.NavBar {
-  float: left;
-  background-color: #4caf50;
-  color: #fff;
-  text-align: center;
-  border-radius: 5px;
-  border: none;
-  text-decoration: none;
-}
-
-.NavBar li {
-  display: inline;
-  padding: 8px;
-}
