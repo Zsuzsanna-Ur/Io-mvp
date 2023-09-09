@@ -22,6 +22,16 @@ function RecipeList(props) {
   return (
     <>
       <div className="RecipeList">
+        <div className="NavBar">
+          <ul>
+            <li>
+              <Link to="/addRecipe">Add a Recipe</Link>
+            </li>
+            <li>
+              <Link to="/">Recipe List</Link>
+            </li>
+          </ul>
+        </div>
         <div className="Title">Your Recipes</div>
         <ul>
           {recipes.map((r) => (
@@ -32,9 +42,6 @@ function RecipeList(props) {
             </li>
           ))}
         </ul>
-      </div>
-      <div className="addRecipeLink">
-        <Link to="/addRecipe">Add a Recipe Here!</Link>
       </div>
     </>
   );

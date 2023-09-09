@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import "./NewRecipe.css";
+import { Link } from "react-router-dom";
 
 const NewRecipe = () => {
   const [formValue, setformValue] = React.useState({
@@ -52,7 +53,17 @@ const NewRecipe = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <p>Add a New Recipe</p>
+      <div className="NavBar">
+        <ul>
+          <li>
+            <Link to="/addRecipe">Add a Recipe</Link>
+          </li>
+          <li>
+            <Link to="/">Recipe List</Link>
+          </li>
+        </ul>
+      </div>
+      <div className="Title">New Recipe</div>
       <input
         type="text"
         name="name"
@@ -80,7 +91,9 @@ const NewRecipe = () => {
         value={formValue.description}
         onChange={handleChange}
       />
-      <button type="submit">Submit</button>
+      <button className="button" type="submit">
+        Submit
+      </button>
     </form>
   );
 };
