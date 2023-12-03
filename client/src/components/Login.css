@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url(https://media-cldnry.s-nbcnews.com/image/upload/rockcms/2022-03/plant-based-food-mc-220323-02-273c7b.jpg);
+}
+.box{
+    position: relative;
+    width: 370px;
+    height: 450px;
+    background-color:rgb(162, 124, 77) ;
+    border-radius: 50px 50px 50px;
+    overflow: hidden;
+}
+input.form{
+    align-items: center;
+    min-width: 30vh;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    padding: auto;
+    
+}
+form{
+    position: absolute;
+    inset: 2px;
+    border-radius: 50px 5px;
+    z-index: 10;
+    padding: 30px 30px;
+    display: flex;
+    flex-direction: column;
+}

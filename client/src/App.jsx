@@ -4,6 +4,7 @@ import RecipeList from "./components/RecipeList";
 import NewRecipe from "./components/NewRecipe";
 import Recipe from "./components/Recipe";
 import HomePage from "./components/HomePage";
+import Login from "./components/Login.jsx";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -11,6 +12,10 @@ const router = createBrowserRouter([
   // define routes
   {
     path: "/",
+    element: <Login />,
+  },
+  {
+    path: "/HomePage",
     element: <HomePage />,
   },
   {

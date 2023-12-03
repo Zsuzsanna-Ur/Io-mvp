@@ -7,18 +7,22 @@
   border-radius: 1rem;
   background-color: hsl(0, 0%, 100%);
   border: 4px solid hsl(0, 0%, 90%);
-  gap: 2rem;
+  gap: 7rem;
   display: grid;
   text-align: center;
   .Link {
-    padding: 10px;
+    padding: 20px;
     text-align: center;
   }
 }
 
 .HomePage ul {
   list-style-type: none;
-  gap: 2rem;
+  gap: 5rem;
   cursor: pointer;
   text-decoration: none;
+}
+div.title {
+  text-align: center;
+  color: blueviolet;
 }

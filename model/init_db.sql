@@ -24,6 +24,12 @@ CREATE TABLE `recipes`(
     `description` LONGTEXT NOT NULL,
     `category` VARCHAR(255) NOT NULL
 );
+CREATE TABLE `users`(
+	`id` INT NOT NULL AUTO_INCREMENT, 
+	`username` VARCHAR(255) NOT NULL, 
+	`password` VARCHAR(255) NOT NULL, 
+	PRIMARY KEY (id)
+);
 
 INSERT INTO recipes (name, link, description, category)
 VALUES

@@ -8,8 +8,11 @@ function HomePage() {
       <div className="NavBar">
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/">Login</Link>
           </li>
+           <li>
+            <Link to="/HomePage">Home</Link>
+           </li>
           <li>
             <Link to="/addRecipe">Add a Recipe</Link>
           </li>

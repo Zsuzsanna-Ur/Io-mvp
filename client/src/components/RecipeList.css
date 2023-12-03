@@ -6,11 +6,13 @@
 .RecipeList button {
   margin-right: 10px;
   margin-bottom: 2px;
+  margin-left: 10px;
 }
 
 .RecipeList ul {
   list-style-type: none;
   cursor: pointer;
+  margin: 5px;
 }
 
 .RecipeList span {
